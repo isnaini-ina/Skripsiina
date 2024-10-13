@@ -34,7 +34,7 @@ if (selected == 'Home'):
     st.markdown("<h5 style='text-align: center; '>Diajukan Untuk Memenuhi Persyaratan Penyelesaian Studi Strata Satu (S1) dan Memperoleh Gelar Sarjana Komputer (S.Kom) di Universitas Trunojoyo Madura</h5>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: center; '>Disusun Oleh:</h6>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: center; '>Isnaini</h6>", unsafe_allow_html=True)
-    st.markdown("<h6 style='text-align: center; '>NPM:200411100038</h6>", unsafe_allow_html=True)
+    st.markdown("<h6 style='text-align: center; '>NPM : 200411100038</h6>", unsafe_allow_html=True)
 
     dp = [
         ("Dosen Pembimbing 1", "Dr. Bain Khusnul Khotimah, S.T., M.Kom"),
