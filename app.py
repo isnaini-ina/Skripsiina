@@ -163,16 +163,12 @@ if (selected == 'Modelling'):
 if (selected == "Implementation"):
      with st.form("my_form"):
         st.subheader("Implementation")
-        gender = st.selectbox('Gender', options=["Male", "Female"])
-        age = st.number_input('Age', min_value=0, max_value=100, value=50)
-        hypertension = st.selectbox('Hypertension', options=[0, 1])
-        heart_disease = st.selectbox('Heart Disease', options=[0, 1])
-        ever_married = st.selectbox('Ever Married', options=["Yes", "No"])
-        work_type = st.selectbox('Work Type', options=['Private', 'Self-employed', 'Govt job', 'children', 'Never worked'])
-        residence_type = st.selectbox('Residence Type', options=['Urban', 'Rural'])
-        avg_glucose_level = st.number_input('Avg Glucose Level', min_value=0.0, value=100.0)
-        bmi = st.number_input('BMI', min_value=0.0, value=25.0)
-        smoking_status = st.selectbox('Smoking Status', options=['formerly smoked', 'never smoked', 'smokes', 'Unknown'])
-        
+        age = st.number_input('Age (Usia Pasien)', min_value=0, max_value=100, value=50)
+        bmi = st.number_input('BMI (Indeks Massa Tubuh"', min_value=0.0, value=25.0)
+        sysBP = st.selectbox('SysBP (Tekanan Darah Sistolik)',  min_value=0, max_value=150, value=50)
+        totChol = st.selectbox('TotChol (Jumlah Kadar Kolestrol)',  min_value=0, max_value=350, value=50)
+        diaBP = st.selectbox('DiaBP (Tekanan Darah Diastolik)',  min_value=0, max_value=100, value=50)
+        glucose = st.selectbox('Glukosa (Kadar Glukosa)',  min_value=0, max_value=100, value=50)
+        prevalentHyp = st.selectbox('PrevalentHyp (Mengalami Hipertensi(1)/tidak(0))', options=[0, 1]])
         prediksi = st.form_submit_button("Predict")
         
