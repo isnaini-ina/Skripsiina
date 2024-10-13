@@ -23,6 +23,7 @@ df = pd.read_csv('https://raw.githubusercontent.com/isnaini-ina/Skripsiina/refs/
 df_imputasi = pd.read_excel('hasil_imputasi.xlsx')
 df_normalisasi = pd.read_excel('hasil_normalisasi.xlsx')
 df_oversampling = pd.read_excel('hasil_oversampling.xlsx')
+df_hapusfitur = pd.read_excel('setelah_hapusfitur.xlsx')
 
 with st.sidebar:
     selected = option_menu('',['Home', 'Research', 'Dataset', 'Preprocessing', 'Modelling', 'Implementation'], default_index=0)
@@ -123,4 +124,10 @@ if (selected == 'Preprocessing'):
         proporsi.plot(kind='pie', autopct='%1.1f%%', colors=['red', 'blue'], labels=['Negatif', 'Positif'])
         plt.title('Proporsi Data TenYearCHD Setelah Oversampling', fontsize=7)
         plt.ylabel('') 
+        st.pyplot(plt)
+  with hapus_fitur:
+        korelasi_matrix = df_hapusfitur.corr(method='pearson')
+        plt.figure(figsize=(15,10))
+        sns.heatmap(korelasi_matrix, annot=True, cmap='coolwarm',vmin=-1, vmax=1)
+        plt.title('Heatmap Matriks Korelasi')
         st.pyplot(plt)
