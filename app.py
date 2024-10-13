@@ -116,7 +116,7 @@ if (selected == 'Preprocessing'):
         # Membuat diagram bar untuk membandingkan jumlah kelas
         # colors = ['red' if label == 0 else 'blue' for label in jumlah_sampel.index]
         # Plot bar graph dengan warna sesuai label
-        plt.bar(df_oversampling.index, df_oversampling.values)
+        plt.bar(X, y)
         # Menambahkan judul dan label
         plt.title('Perbandingan Jumlah Data Negatif dan Positif Setelah Oversampling', fontsize=10)
         plt.xlabel('Kelas TenYearCHD', fontsize=10)
