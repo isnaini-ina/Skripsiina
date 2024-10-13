@@ -119,7 +119,7 @@ if (selected == 'Preprocessing'):
         plt.xticks(ticks=[0, 1], labels=['Negatif (0)', 'Positif (1)']) 
         st.pyplot(plt)
         proporsi = df_oversampling['TenYearCHD'].value_counts()
-        plt.figure(figsize=(5, 3))
+        plt.figure(figsize=(4, 3))
         proporsi.plot(kind='pie', autopct='%1.1f%%', colors=['red', 'blue'], labels=['Negatif', 'Positif'])
         plt.title('Proporsi Data TenYearCHD Setelah Oversampling', fontsize=7)
         plt.ylabel('') 
