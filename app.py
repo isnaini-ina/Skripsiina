@@ -24,6 +24,7 @@ df_imputasi = pd.read_excel('hasil_imputasi.xlsx')
 df_normalisasi = pd.read_excel('hasil_normalisasi.xlsx')
 df_oversampling = pd.read_excel('hasil_oversampling.xlsx')
 df_hapusfitur = pd.read_excel('setelah_hapusfitur.xlsx')
+df_IG = pd.read_excel('urutan_IG.xlsx')
 
 with st.sidebar:
     selected = option_menu('',['Home', 'Research', 'Dataset', 'Preprocessing', 'Modelling', 'Implementation'], default_index=0)
@@ -131,3 +132,9 @@ if (selected == 'Preprocessing'):
         sns.heatmap(korelasi_matrix, annot=True, cmap='coolwarm',vmin=-1, vmax=1)
         plt.title('Heatmap Matriks Korelasi')
         st.pyplot(fig)
+        st.write("""Hasil Pengahapusan Fitur""")
+        st.dataframe(df_hapusfitur)
+    with seleksi_fitur:
+        st.write("""Hasil Seleksi Fitur""")
+        st.dataframe(df_IG)
+        
