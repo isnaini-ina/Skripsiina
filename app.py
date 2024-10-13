@@ -19,6 +19,10 @@ def progress():
     with st.spinner('Wait for it...'):
         time.sleep(5)
 
+df = pd.read_csv('https://raw.githubusercontent.com/isnaini-ina/Skripsiina/refs/heads/main/framingham.csv')
+df_imputasi = pd.read_excel('hasil_imputasi.xlsx')
+df_normalisasi = pd.read_excel('hasil_normalisasi.xlsx')
+
 with st.sidebar:
     selected = option_menu('',['Home', 'Research', 'Dataset', 'Preprocessing', 'Modelling', 'Implementation'], default_index=0)
 if (selected == 'Home'):
@@ -88,3 +92,13 @@ if (selected == 'Dataset'):
         """)
         ket_data = pd.read_excel('data.xlsx')
         st.dataframe(ket_data)
+if (selected == 'Preprocessing'):
+    st.title("Preprocessing Data")
+    mean_imputation, normalisasi_data, oversampling, hapus_fitur, seleksi_fitur= st.tabs(["Mean Imputation", "Normalisasi Data", "Oversampling", "Hapus Fitur", "Seleksi Fitur"])
+    with mean_imputation:
+        st.write("""Informasi missing value :""")
+        mis = df.isnull().sum().reset_index()
+        mis.columns = ['Fitur', 'Jumlah Missing Values']
+        st.dataframe(mis, width=400)
+        st.write("""Hasil Imputasi :""")
+        st.dataframe(df_imputasi)
