@@ -19,8 +19,6 @@ def progress():
     with st.spinner('Wait for it...'):
         time.sleep(5)
 
-
-
 with st.sidebar:
     selected = option_menu('',['Home', 'Research', 'Dataset', 'Preprocessing', 'Modelling', 'Implementation'], default_index=0)
 if (selected == 'Home'):
@@ -33,7 +31,7 @@ if (selected == 'Home'):
         st.image(url_logo, use_column_width='auto')
     with col3:
         st.write(' ')
-     st.markdown("<h5 style='text-align: center; '>Diajukan Untuk Memenuhi Persyaratan Penyelesaian Studi Strata Satu (S1) dan Memperoleh Gelar Sarjana Komputer (S.Kom) di Universitas Trunojoyo Madura</h5>", unsafe_allow_html=True)
+    st.markdown("<h5 style='text-align: center; '>Diajukan Untuk Memenuhi Persyaratan Penyelesaian Studi Strata Satu (S1) dan Memperoleh Gelar Sarjana Komputer (S.Kom) di Universitas Trunojoyo Madura</h5>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: center; '>Disusun Oleh:</h6>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: center; '>Isnaini</h6>", unsafe_allow_html=True)
     st.markdown("<h6 style='text-align: center; '>NPM:200411100038</h6>", unsafe_allow_html=True)
