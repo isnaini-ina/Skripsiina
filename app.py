@@ -24,7 +24,7 @@ def progress():
 with st.sidebar:
     selected = option_menu('',['Home', 'Research', 'Dataset', 'Preprocessing', 'Modelling', 'Implementation'], default_index=0)
 if (selected == 'Home'):
-    st.markdown("<h1 style='text-align: center; '>Implementasi Metode Smote Pada Klasifikasi Penyakit Stroke dengan Algoritma Naive Bayes</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; '>KLASIFIKASI TERHADAP RESIKO PENYAKIT JANTUNG DENGAN MENGGUNAKAN METODE ENTROPY FUZZY SUPPORT VECTOR MACHINE</h1>", unsafe_allow_html=True)
     url_logo = 'utm.png'
 if (selected == 'Dataset'):
     st.title("Dataset")
@@ -36,7 +36,7 @@ if (selected == 'Dataset'):
             st.write(dataset)
     with ket:
         st.write(
-            "Data yang digunakan diperoleh dari repositori Kaggle yang terdiri dari catatan kesehatan yang dikumpulkan dari berbagai rumah sakit di Bangladesh oleh tim peneliti untuk tujuan akademis. Data ini dapat diakses secara publik melalui https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset")
+            "Pada penelitian ini dataset berasal dari situs kaggle.com. Data tersebut merupakan hasil studi kasus kardiovaskular yang sedang berlangsung pada penduduk kota Framingham, Massachusetts, Amerika Serikat. Studi Jantung di Kota Framingham sudah berdiri sejak tahun 1948 di bawah arahan National Heart, Lung, and Blood Institute (NHLBI) yang berfokus dalam mengidentifikasi faktor atau karakteristik umum yang berkontribusi terhadap penyakit kardiovaskular (CVD")
         st.download_button(
             label="Download data",
             data='data.xlsx',
