@@ -48,7 +48,3 @@ if (selected == 'Dataset'):
         """)
         ket_data = pd.read_csv('ket_data.csv')
         st.dataframe(ket_data)
-
-if (selected == 'Preprocessing'):
-if (selected == 'Modelling'):
-if (selected == 'Implementation'):
