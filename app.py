@@ -110,13 +110,13 @@ if (selected == 'Preprocessing'):
         st.write("""Hasil Normalisasi :""")
         st.dataframe(df_normalisasi)
     with oversampling:
-        X = df_oversampling.drop(['TenYearCHD'], axis=1)
-        y = df_oversampling['TenYearCHD']
-        # jumlah_sampel = X[y.name].value_counts()
+        # X = df_oversampling.drop(['TenYearCHD'], axis=1)
+        # y = df_oversampling['TenYearCHD']
+        jumlah_sampel = df_oversampling['TenYearCHD'].value_counts()
         # Membuat diagram bar untuk membandingkan jumlah kelas
-        # colors = ['red' if label == 0 else 'blue' for label in jumlah_sampel.index]
+        colors = ['red' if label == 0 else 'blue' for label in jumlah_sampel.index]
         # Plot bar graph dengan warna sesuai label
-        plt.bar(X, y)
+        plt.bar(jumlah_sampel.index, jumlah_sampel.values, color=colors)
         # Menambahkan judul dan label
         plt.title('Perbandingan Jumlah Data Negatif dan Positif Setelah Oversampling', fontsize=10)
         plt.xlabel('Kelas TenYearCHD', fontsize=10)
