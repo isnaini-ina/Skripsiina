@@ -22,6 +22,7 @@ def progress():
 df = pd.read_csv('https://raw.githubusercontent.com/isnaini-ina/Skripsiina/refs/heads/main/framingham.csv')
 df_imputasi = pd.read_excel('hasil_imputasi.xlsx')
 df_normalisasi = pd.read_excel('hasil_normalisasi.xlsx')
+df_oversampling = pd.read_excel('hasil_oversampling.xlsx')
 
 with st.sidebar:
     selected = option_menu('',['Home', 'Research', 'Dataset', 'Preprocessing', 'Modelling', 'Implementation'], default_index=0)
@@ -109,8 +110,8 @@ if (selected == 'Preprocessing'):
         st.write("""Hasil Normalisasi :""")
         st.dataframe(df_normalisasi)
     with oversampling:
-        X = df_normalisasi.drop(['TenYearCHD'], axis=1)
-        y = df_normalisasi['TenYearCHD']
+        X = df_oversampling.drop(['TenYearCHD'], axis=1)
+        y = df_oversampling['TenYearCHD']
         jumlah_sampel = X[y.name].value_counts()
         # Membuat diagram bar untuk membandingkan jumlah kelas
         colors = ['red' if label == 0 else 'blue' for label in jumlah_sampel.index]
