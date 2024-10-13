@@ -164,7 +164,7 @@ if (selected == "Implementation"):
      with st.form("my_form"):
         st.subheader("Implementation")
         age = st.number_input('Age (Usia Pasien)', min_value=0, max_value=100, value=50)
-        bmi = st.number_input('BMI (Indeks Massa Tubuh"', min_value=0.0, value=25.0)
+        bmi = st.number_input('BMI (Indeks Massa Tubuh)', min_value=0.0, value=25.0)
         sysBP = st.selectbox('SysBP (Tekanan Darah Sistolik)',  min_value=0, max_value=150, value=50)
         totChol = st.selectbox('TotChol (Jumlah Kadar Kolestrol)',  min_value=0, max_value=350, value=50)
         diaBP = st.selectbox('DiaBP (Tekanan Darah Diastolik)',  min_value=0, max_value=100, value=50)
