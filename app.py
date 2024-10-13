@@ -25,6 +25,7 @@ df_normalisasi = pd.read_excel('hasil_normalisasi.xlsx')
 df_oversampling = pd.read_excel('hasil_oversampling.xlsx')
 df_hapusfitur = pd.read_excel('setelah_hapusfitur.xlsx')
 df_IG = pd.read_excel('urutan_IG.xlsx')
+df_topfitur = pd.read_excel('hasil_topfitur.xlsx')
 
 with st.sidebar:
     selected = option_menu('',['Home', 'Research', 'Dataset', 'Preprocessing', 'Modelling', 'Implementation'], default_index=0)
@@ -135,7 +136,7 @@ if (selected == 'Preprocessing'):
         st.write("""Hasil Pengahapusan Fitur""")
         st.dataframe(df_hapusfitur)
     with seleksi_fitur:
-        st.write("""Hasil Seleksi Fitur""")
+        st.write("""Urutan Top Fitur""")
         st.dataframe(df_IG)
         plt.figure(figsize=(10, 6))
         plt.barh(df_IG['Feature'], df_IG['Information Gain'], color='skyblue')
@@ -143,4 +144,6 @@ if (selected == 'Preprocessing'):
         plt.title('Information Gain dari Setiap Fitur')
         plt.gca().invert_yaxis() 
         st.pyplot(plt)
+        st.write("""Hasil Seleksi Fitur""")
+        st.dataframe(df_topfitur)
         
