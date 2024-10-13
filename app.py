@@ -137,4 +137,10 @@ if (selected == 'Preprocessing'):
     with seleksi_fitur:
         st.write("""Hasil Seleksi Fitur""")
         st.dataframe(df_IG)
+        plt.figure(figsize=(10, 6))
+        plt.barh(df_IG['Feature'], df_IG['Information Gain'], color='skyblue')
+        plt.xlabel('Information Gain')
+        plt.title('Information Gain dari Setiap Fitur')
+        plt.gca().invert_yaxis() 
+        st.pyplot(fig)
         
