@@ -169,6 +169,6 @@ if (selected == "Implementation"):
         totChol = st.selectbox('TotChol (Jumlah Kadar Kolestrol)',  min_value=0, max_value=350, value=50)
         diaBP = st.selectbox('DiaBP (Tekanan Darah Diastolik)',  min_value=0, max_value=100, value=50)
         glucose = st.selectbox('Glukosa (Kadar Glukosa)',  min_value=0, max_value=100, value=50)
-        prevalentHyp = st.selectbox('PrevalentHyp (Mengalami Hipertensi(1)/tidak(0))', options=[0, 1]])
+        prevalentHyp = st.selectbox('PrevalentHyp (Mengalami Hipertensi(1)/tidak(0))', options=[0, 1])
         prediksi = st.form_submit_button("Predict")
         
