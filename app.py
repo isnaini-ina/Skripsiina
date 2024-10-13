@@ -26,3 +26,16 @@ with st.sidebar:
 if (selected == 'Home'):
     st.markdown("<h1 style='text-align: center; '>Implementasi Metode Smote Pada Klasifikasi Penyakit Stroke dengan Algoritma Naive Bayes</h1>", unsafe_allow_html=True)
     url_logo = 'utm.png'
+if (selected == 'Research'):
+if (selected == 'Dataset'):
+    st.title("Dataset")
+    dataset, ket = st.tabs(['Dataset', 'Ket Dataset'])
+    with dataset:
+        dataset = pd.read_csv('https://raw.githubusercontent.com/isnaini-ina/Skripsiina/refs/heads/main/framingham.csv')
+        # Optional: Display dataset
+        if st.checkbox("Show Dataset"):
+            st.write(dataset)
+
+if (selected == 'Preprocessing'):
+if (selected == 'Modelling'):
+if (selected == 'Implementation'):
