@@ -24,7 +24,7 @@ def progress():
 with st.sidebar:
     selected = option_menu('',['Home', 'Research', 'Dataset', 'Preprocessing', 'Modelling', 'Implementation'], default_index=0)
 if (selected == 'Home'):
-    st.markdown("<h1 style='text-align: center; '>KLASIFIKASI TERHADAP RESIKO PENYAKIT JANTUNG DENGAN MENGGUNAKAN METODE ENTROPY FUZZY SUPPORT VECTOR MACHINE</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; '>Klasifikasi Terhadap Resiko Penyakit Jantung dengan Menggunakan Metode Entropy Fuzzy Support Vector Machine</h1>", unsafe_allow_html=True)
     url_logo = 'utm.png'
 if (selected == 'Dataset'):
     st.title("Dataset")
