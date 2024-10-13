@@ -113,16 +113,13 @@ if (selected == 'Preprocessing'):
         jumlah_sampel = df_oversampling['TenYearCHD'].value_counts()
         colors = ['red' if label == 0 else 'blue' for label in jumlah_sampel.index]
         plt.bar(jumlah_sampel.index, jumlah_sampel.values, color=colors)
-        # Menambahkan judul dan label
         plt.title('Perbandingan Jumlah Data Negatif dan Positif Setelah Oversampling', fontsize=10)
         plt.xlabel('Kelas TenYearCHD', fontsize=10)
         plt.ylabel('Jumlah Data', fontsize=10)
         plt.xticks(ticks=[0, 1], labels=['Negatif (0)', 'Positif (1)'])  # Menambahkan label pada sumbu x
-        # Menampilkan plot
         st.pyplot(plt)
         proporsi = df_oversampling['TenYearCHD'].value_counts()
-        # Membuat pie chart
-        plt.figure(figsize=(7, 5))
+        plt.figure(figsize=(4, 2))
         proporsi.plot(kind='pie', autopct='%1.1f%%', colors=['red', 'blue'], labels=['Negatif', 'Positif'])
         plt.title('Proporsi Data TenYearCHD Setelah Oversampling', fontsize=10)
         plt.ylabel('')  # Menghilangkan label sumbu y
