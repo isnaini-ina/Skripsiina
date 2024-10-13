@@ -26,7 +26,6 @@ with st.sidebar:
 if (selected == 'Home'):
     st.markdown("<h1 style='text-align: center; '>Implementasi Metode Smote Pada Klasifikasi Penyakit Stroke dengan Algoritma Naive Bayes</h1>", unsafe_allow_html=True)
     url_logo = 'utm.png'
-if (selected == 'Research'):
 if (selected == 'Dataset'):
     st.title("Dataset")
     dataset, ket = st.tabs(['Dataset', 'Ket Dataset'])
@@ -35,6 +34,20 @@ if (selected == 'Dataset'):
         # Optional: Display dataset
         if st.checkbox("Show Dataset"):
             st.write(dataset)
+    with ket:
+        st.write(
+            "Data yang digunakan diperoleh dari repositori Kaggle yang terdiri dari catatan kesehatan yang dikumpulkan dari berbagai rumah sakit di Bangladesh oleh tim peneliti untuk tujuan akademis. Data ini dapat diakses secara publik melalui https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset")
+        st.download_button(
+            label="Download data",
+            data='dataset/data.xlsx',
+            file_name='data.xlsx',
+            mime='text/xlsx',
+        )
+        st.write("""
+            Keterangan Dataset :
+        """)
+        ket_data = pd.read_csv('ket_data.csv')
+        st.dataframe(ket_data)
 
 if (selected == 'Preprocessing'):
 if (selected == 'Modelling'):
