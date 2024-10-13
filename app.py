@@ -102,3 +102,24 @@ if (selected == 'Preprocessing'):
         st.dataframe(mis, width=400)
         st.write("""Hasil Imputasi :""")
         st.dataframe(df_imputasi)
+    with normalisasi_data:
+        st.write("""Normalisasi data menggunakan Min-Max Normalization""")
+        st.write("Rumus Min-Max :")
+        st.latex(r"x_{\text{normalized}} = \frac{x - x_{\text{min}}}{x_{\text{max}} - x_{\text{min}}}")
+        st.write("""Hasil Normalisasi :""")
+        st.dataframe(df_normalisasi)
+    with oversampling:
+        X = df_normalisasi.drop(['TenYearCHD'], axis=1)
+        y = df_normalisasi['TenYearCHD']
+        jumlah_sampel = X[y.name].value_counts()
+        # Membuat diagram bar untuk membandingkan jumlah kelas
+        colors = ['red' if label == 0 else 'blue' for label in jumlah_sampel.index]
+        # Plot bar graph dengan warna sesuai label
+        plt.bar(jumlah_sampel.index, jumlah_sampel.values, color=colors)
+        # Menambahkan judul dan label
+        plt.title('Perbandingan Jumlah Data Negatif dan Positif Setelah Oversampling', fontsize=10)
+        plt.xlabel('Kelas TenYearCHD', fontsize=10)
+        plt.ylabel('Jumlah Data', fontsize=10)
+        plt.xticks(ticks=[0, 1], labels=['Negatif (0)', 'Positif (1)'])  # Menambahkan label pada sumbu x
+        # Menampilkan plot
+        plt.show()
