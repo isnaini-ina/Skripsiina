@@ -142,5 +142,5 @@ if (selected == 'Preprocessing'):
         plt.xlabel('Information Gain')
         plt.title('Information Gain dari Setiap Fitur')
         plt.gca().invert_yaxis() 
-        st.pyplot(fig)
+        st.pyplot(plt)
         
