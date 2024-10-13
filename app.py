@@ -123,4 +123,4 @@ if (selected == 'Preprocessing'):
         plt.ylabel('Jumlah Data', fontsize=10)
         plt.xticks(ticks=[0, 1], labels=['Negatif (0)', 'Positif (1)'])  # Menambahkan label pada sumbu x
         # Menampilkan plot
-        plt.show()
+        st.pyplot(plt)
