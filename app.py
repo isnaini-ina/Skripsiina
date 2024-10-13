@@ -150,15 +150,14 @@ if (selected == 'Preprocessing'):
 
 
 if (selected == 'Modelling'):
-    progress()
     with st.form("Modelling"):
         st.subheader('Modelling')
         st.write("Pilihlah model yang akan dilakukan pengecekkan akurasi:")
-        nb = st.checkbox('Support Vector Machine (SVM)')
-        nb_knni = st.checkbox('Entropy Fuzzy + Support Vector Machine')
-        nb_k3 = st.checkbox('Entropy Fuzzy + Support Vector Machine + Oversampling + SMOTE(k=3)')
-        nb_k5 = st.checkbox('Entropy Fuzzy + Support Vector Machine + Oversampling + SMOTE(k=5)')
-        nb_k7 = st.checkbox('Entropy Fuzzy + Support Vector Machine + Oversampling + SMOTE(k=7)')
+        svm = st.checkbox('Support Vector Machine (SVM)')
+        efsvm = st.checkbox('Entropy Fuzzy + Support Vector Machine')
+        efsvm_k3 = st.checkbox('Entropy Fuzzy + Support Vector Machine + Oversampling + SMOTE(k=3)')
+        efsvm_k5 = st.checkbox('Entropy Fuzzy + Support Vector Machine + Oversampling + SMOTE(k=5)')
+        efsvm_k7 = st.checkbox('Entropy Fuzzy + Support Vector Machine + Oversampling + SMOTE(k=7)')
         submitted = st.form_submit_button("Submit")
 
 if (selected == "Implementation"):
