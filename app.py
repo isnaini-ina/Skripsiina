@@ -26,7 +26,7 @@ with st.sidebar:
 if (selected == 'Home'):
     st.markdown("<h1 style='text-align: center; '>Klasifikasi terhadap Resiko Penyakit Jantung dengan Menggunakan Metode Entropy Fuzzy Support Vector Machine</h1>", unsafe_allow_html=True)
     url_logo = 'logo-utm.png'
-        col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.columns(3)
     with col1:
         st.write(' ')
     with col2:
