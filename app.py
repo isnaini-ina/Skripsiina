@@ -127,7 +127,7 @@ if (selected == 'Preprocessing'):
         st.pyplot(plt)
   with hapus_fitur:
         korelasi_matrix = df_hapusfitur.corr(method='pearson')
-        plt.figure(figsize=(15,10))
+        fig, ax = plt.figure(figsize=(15,10))
         sns.heatmap(korelasi_matrix, annot=True, cmap='coolwarm',vmin=-1, vmax=1)
-        plt.title('Heatmap Matriks Korelasi')
-        st.pyplot(plt)
+        ax.set_title(f'Heatmap Matriks Korelasi')
+        st.pyplot(fig)
