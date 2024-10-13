@@ -39,7 +39,7 @@ if (selected == 'Dataset'):
             "Data yang digunakan diperoleh dari repositori Kaggle yang terdiri dari catatan kesehatan yang dikumpulkan dari berbagai rumah sakit di Bangladesh oleh tim peneliti untuk tujuan akademis. Data ini dapat diakses secara publik melalui https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset")
         st.download_button(
             label="Download data",
-            data='dataset/data.xlsx',
+            data='data.xlsx',
             file_name='data.xlsx',
             mime='text/xlsx',
         )
