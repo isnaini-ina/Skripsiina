@@ -46,5 +46,5 @@ if (selected == 'Dataset'):
         st.write("""
             Keterangan Dataset :
         """)
-        ket_data = pd.read_csv('ket_data.csv')
+        ket_data = pd.read_excel('data.xlsx')
         st.dataframe(ket_data)
