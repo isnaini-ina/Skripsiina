@@ -148,7 +148,6 @@ if (selected == 'Preprocessing'):
         st.write("""Hasil Seleksi Fitur""")
         st.dataframe(df_topfitur)
 
-
 if (selected == 'Modelling'):
     with st.form("Modelling"):
         st.subheader('Modelling')
