@@ -185,6 +185,9 @@ if (selected == 'Modelling'):
         efsvm80 = joblib.load('model_efsvm/clf_svm_model80.pkl')
         efsvm70 = joblib.load('model_efsvm/clf_svm_model70.pkl')
 
+        if len(X_test90.shape) == 1:
+            X_test90 = X_test90.reshape(1, -1)  # Untuk data satu sampel.
+    
         efsvm90_pred = efsvm90.predict(X_test90)
         auc_score = roc_auc_score(y_test90, efsvm90_pred)
         accuracy = accuracy_score(y_test90, efsvm90_pred)
