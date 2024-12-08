@@ -160,7 +160,7 @@ if (selected == 'Modelling'):
         efsvm_70 = st.checkbox('Split Data (70:30)')
         submitted = st.form_submit_button("Submit")
 
-        # st.dataframe(data_new)
+        st.dataframe(data_new)
         X = data_new.drop('TenYearCHD', axis=1)  # Menghapus kolom target ('TenYearCHD') dari fitur
         y = data_new['TenYearCHD']  # Menetapkan kolom target 'TenYearCHD' sebagai y
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
