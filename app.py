@@ -241,7 +241,7 @@ if (selected == "Implementation"):
             input_data = input_data.astype(float)
             scaler = MinMaxScaler()
             input_data_scaled = pd.DataFrame(scaler.fit_transform(input_data), columns=input_data.columns)
-            prediction = svm.predict(input_data_scaled)
+            prediction = svm90.predict(input_data_scaled)
 
             st.subheader('Prediction Results')
             
