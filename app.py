@@ -191,7 +191,6 @@ if (selected == 'Modelling'):
                 st.write('EFSVM dengan K=3')
                 st.image('efsvm3.png')
             if efsvm_90:
-                st.write("AUC Score: ", auc_score)
                 st.write("Accuracy: ", accuracy)
                 
             
