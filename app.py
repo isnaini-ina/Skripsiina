@@ -232,7 +232,7 @@ if (selected == "Implementation"):
                 'prevalentStroke': [prevalentStroke],
                 'prevalentHyp': [prevalentHyp],
                 'diabetes': [diabetes],
-                'totChol ': [totChol],
+                'totChol': [totChol],
                 'sysBP': [sysBP],
                 'diaBP': [diaBP],
                 'BMI': [bmi],
