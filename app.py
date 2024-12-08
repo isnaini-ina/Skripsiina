@@ -26,6 +26,7 @@ df_oversampling = pd.read_excel('hasil_oversampling.xlsx')
 df_hapusfitur = pd.read_excel('setelah_hapusfitur.xlsx')
 df_IG = pd.read_excel('urutan_IG.xlsx')
 df_topfitur = pd.read_excel('hasil_topfitur.xlsx')
+data_new = pd.read_csv('data_new.csv')
 
 with st.sidebar:
     selected = option_menu('',['Home', 'Research', 'Dataset', 'Preprocessing', 'Modelling', 'Implementation'], default_index=0)
