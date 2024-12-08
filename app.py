@@ -235,7 +235,7 @@ if (selected == "Implementation"):
                 'totChol ': [totChol ],
                 'sysBP ': [sysBP],
                 'diaBP': [diaBP],
-                'bmi': [bmi],
+                'BMI': [bmi],
                 'heartRate': [heartRate],
                 'glucose':[glucose]
             }
