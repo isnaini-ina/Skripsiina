@@ -19,7 +19,7 @@ def progress():
     with st.spinner('Wait for it...'):
         time.sleep(5)
 
-df = pd.read_csv('https://raw.githubusercontent.com/isnaini-ina/Skripsiina/refs/heads/main/framingham.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/isnaini-ina/Skripsiina/refs/heads/main/dataset_framingham.csv')
 df_imputasi = pd.read_excel('hasil_imputasi.xlsx')
 df_normalisasi = pd.read_excel('hasil_normalisasi.xlsx')
 df_oversampling = pd.read_excel('hasil_oversampling.xlsx')
