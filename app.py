@@ -114,7 +114,7 @@ if (selected == 'Preprocessing'):
         st.write("""Hasil Normalisasi :""")
         st.dataframe(df_normalisasi)
     with hapus_fitur:
-        korelasi_matrix = df_oversampling.corr(method='pearson')
+        korelasi_matrix = df_normalisasi.corr(method='pearson')
         fig = plt.figure(figsize=(15,10))
         sns.heatmap(korelasi_matrix, annot=True, cmap='coolwarm',vmin=-1, vmax=1)
         plt.title('Heatmap Matriks Korelasi')
