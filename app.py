@@ -166,6 +166,8 @@ if (selected == 'Modelling'):
                 st.image('SVM_keseluruhan.png')
                 st.write('Confussion Matrik Tertinggi')
                 st.image('confussion_matrik_SVM.png')
+                st.write('Classification Report Tertinggi')
+                st.image('classificationreport_svm.png')
             if efsvm :
                 st.write('EFSVM dengan K=7')
                 st.image('efsvm7.png')
