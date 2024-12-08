@@ -7,7 +7,7 @@ import joblib
 from streamlit_option_menu import option_menu
 from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score, confusion_matrix, roc_auc_score
+from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score, confusion_matrix, roc_auc_score, classification_report
 
 # prepocessing
 from sklearn.preprocessing import MinMaxScaler
