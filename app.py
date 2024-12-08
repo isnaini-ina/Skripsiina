@@ -4,7 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import joblib
-import svm
 from streamlit_option_menu import option_menu
 from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
