@@ -6,6 +6,7 @@ import seaborn as sns
 import joblib
 import svm
 from streamlit_option_menu import option_menu
+from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score, confusion_matrix, roc_auc_score
 
@@ -164,15 +165,14 @@ if (selected == 'Modelling'):
         X = data_new.drop('TenYearCHD', axis=1)  # Menghapus kolom target ('TenYearCHD') dari fitur
         y = data_new['TenYearCHD']  # Menetapkan kolom target 'TenYearCHD' sebagai y
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
-        clf_svm = svm.SVC(class_weight='balanced', probability=True, C=1, gamma=10, kernel='rbf')
-        clf_svm.fit(X_train, y_train)
+        svm = SVC(class_weight='balanced', probability=True, C=1, gamma=10, kernel='rbf')
+        svm.fit(X_train, y_train)
         
         # Prediksi dan probabilitas untuk data uji
-        y_pred_svm = clf_svm.predict(X_test)
-        y_pred_prob = clf_svm.predict_proba(X_test)[:, 1]  # Probabilitas kelas positif
+        y_pred_svm = svm.predict(X_test)
 
-        auc_score = roc_auc_score(y_test, y_pred_prob)
-        accuracy = accuracy_score(y_test, y_pred)
+        auc_score = roc_auc_score(y_test, y_pred_svm)
+        accuracy = accuracy_score(y_test, y_pred_svm)
         
         if submitted:
             if svm:
