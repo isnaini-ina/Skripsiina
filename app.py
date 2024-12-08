@@ -20,6 +20,7 @@ def progress():
         time.sleep(5)
 
 df = pd.read_csv('https://raw.githubusercontent.com/isnaini-ina/Skripsiina/refs/heads/main/dataset_framingham.csv')
+data_new = pd.read_csv('https://raw.githubusercontent.com/isnaini-ina/Skripsiina/refs/heads/main/data_new.csv')
 df_imputasi = pd.read_excel('hasil_imputasi.xlsx')
 df_normalisasi = pd.read_excel('hasil_normalisasi.xlsx')
 df_oversampling = pd.read_excel('hasil_oversampling.xlsx')
@@ -153,14 +154,7 @@ if (selected == 'Preprocessing'):
 if (selected == 'Modelling'):
     with st.form("Modelling"):
         st.subheader('Modelling')
-
-        st.write("Data yang diupload:")
-        st.dataframe(data_new)
         
-        if 'TenYearCHD' in data_new.columns:
-            X = data_new.drop(columns=['TenYearCHD'])
-            y = data_new['TenYearCHD']
-            
         st.write("Pilihlah model yang akan dilakukan pengecekkan akurasi:")
         svm = st.checkbox('Support Vector Machine (SVM)')
         efsvm = st.checkbox('Entropy Fuzzy + SVM (K=3, K=5, K=7)')
@@ -168,6 +162,10 @@ if (selected == 'Modelling'):
         efsvm_80 = st.checkbox('Split Data (80:20)')
         efsvm_70 = st.checkbox('Split Data (70:30)')
         submitted = st.form_submit_button("Submit")
+
+                # Misalkan df adalah DataFrame yang memuat data yang Anda gunakan
+        X = data_new.drop('TenYearCHD', axis=1)  # Menghapus kolom target ('TenYearCHD') dari fitur
+        y = data_new['TenYearCHD']  # Menetapkan kolom target 'TenYearCHD' sebagai y
 
         X_train90, y_train90, X_test90, y_test90 = train_test_split(X, y, test_size=0.1, random_state=42)
 
@@ -207,8 +205,8 @@ if (selected == 'Modelling'):
                 st.write('EFSVM dengan K=3')
                 st.image('efsvm3.png')
             if efsvm_90 :
-                st.write('AUC pada data uji : ', auc_score)
-                st.write('Model efsvm accuracy score: {0:0.2f}'. format(accuracy))
+                st.write('AUC pada data uji: ', auc_score)
+                st.write('Model efsvm accuracy score: {0:0.2f}'.format(accuracy))
                 st.write('Classification report: ')
                 st.text(report)
     
