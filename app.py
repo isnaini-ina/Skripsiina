@@ -22,7 +22,7 @@ def progress():
 df = pd.read_csv('https://raw.githubusercontent.com/isnaini-ina/Skripsiina/refs/heads/main/dataset_framingham.csv')
 df_imputasi = pd.read_excel('hasil_imputasi..xlsx')
 df_normalisasi = pd.read_excel('hasil_normalisasi..xlsx')
-df_hapusfitur = pd.read_excel('hasil_dropfitur..xlsx')
+df_hapusfitur = pd.read_excel('hasil_dropfitur...xlsx')
 df_topfitur = pd.read_excel('hasil_topfitur.xlsx')
 data_new = pd.read_excel('data_new.xlsx')
 
