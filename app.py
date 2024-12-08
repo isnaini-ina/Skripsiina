@@ -177,9 +177,9 @@ if (selected == 'Modelling'):
         # training_svm_70, test_svm_70 = train_test_split(X, test_size=0.3,random_state=42) # Nilai X training dan Nilai X testing
         # training_label_svm_70, test_label_svm_70 = train_test_split(y, test_size=0.3,random_state=42) # Nilai Y training dan Nilai Y testing
 
-        efsvm90 = joblib.load('model_efsvm/clf_svm_model90.pkl')
-        efsvm80 = joblib.load('model_efsvm/clf_svm_model80.pkl')
-        efsvm70 = joblib.load('model_efsvm/clf_svm_model70.pkl')
+        efsvm90 = joblib.load('clf_svm_model90.pkl')
+        # efsvm80 = joblib.load('model_efsvm/clf_svm_model80.pkl')
+        # efsvm70 = joblib.load('model_efsvm/clf_svm_model70.pkl')
     
         # efsvm90_pred = efsvm90.predict(X_test90)
         # y_pred_prob = efsvm90.predict_proba(X_test90)[:, 1]
