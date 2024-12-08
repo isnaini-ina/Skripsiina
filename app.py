@@ -89,8 +89,8 @@ if (selected == 'Dataset'):
             "Pada penelitian ini dataset berasal dari situs kaggle.com. Data tersebut merupakan hasil studi kasus kardiovaskular yang sedang berlangsung pada penduduk kota Framingham, Massachusetts, Amerika Serikat. Studi Jantung di Kota Framingham sudah berdiri sejak tahun 1948 di bawah arahan National Heart, Lung, and Blood Institute (NHLBI) yang berfokus dalam mengidentifikasi faktor atau karakteristik umum yang berkontribusi terhadap penyakit kardiovaskular. Data ini dapat diakses secara publik melalui https://www.kaggle.com/datasets/dileep070/heart-disease-prediction-using-logistic-regression")
         st.download_button(
             label="Download data",
-            data='data.xlsx',
-            file_name='data.xlsx',
+            data='data_new.xlsx',
+            file_name='data_new.xlsx',
             mime='text/xlsx',
         )
         st.write("""
