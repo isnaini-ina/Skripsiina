@@ -166,15 +166,24 @@ if (selected == 'Modelling'):
         X = data_new.drop('TenYearCHD', axis=1)  # Menghapus kolom target ('TenYearCHD') dari fitur
         y = data_new['TenYearCHD']  # Menetapkan kolom target 'TenYearCHD' sebagai y
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
+        X_train2, X_test2, y_train2, y_test2 = train_test_split(X, y, test_size=0.2, random_state=42)
+        X_train3, X_test3, y_train3, y_test3 = train_test_split(X, y, test_size=0.3, random_state=42)
         
         svm90 = joblib.load('model_efsvm/svm90.pkl')
-        
+        svm80 = joblib.load('model_efsvm/svm80.pkl')
+        svm70 = joblib.load('model_efsvm/svm70.pkl')
         # Prediksi dan probabilitas untuk data uji
         y_pred_svm = svm90.predict(X_test)
-
-        # auc_score = roc_auc_score(y_test, y_pred_svm)
         accuracy = accuracy_score(y_test, y_pred_svm)
         cm = confusion_matrix(y_test, y_pred_svm)
+
+        y_pred_svm2 = svm80.predict(X_test2)
+        accuracy2 = accuracy_score(y_test2, y_pred_svm2)
+        cm2 = confusion_matrix(y_test2, y_pred_svm2)
+
+        y_pred_svm3 = svm70.predict(X_test3)
+        accuracy3 = accuracy_score(y_test3, y_pred_svm3)
+        cm3 = confusion_matrix(y_test3, y_pred_svm3)
         
         if submitted:
             if svm:
@@ -197,7 +206,25 @@ if (selected == 'Modelling'):
                 st.write('Accuracy: {0:0.2f}'. format(accuracy))
                 st.image('classification_skenario3.png')
                 fig, ax = plt.subplots(figsize=(8, 6))
-                sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=["No Disease", "Disease"], yticklabels=["No Disease", "Disease"])
+                sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=["Negatif", "Positif"], yticklabels=["Negatif", "Positif"])
+                ax.set_xlabel('Predicted')
+                ax.set_ylabel('True')
+                ax.set_title('Confusion Matrix')
+                st.pyplot(fig)
+            if efsvm_80:
+                st.write('Accuracy: {0:0.2f}'. format(accuracy2))
+                # st.image('classification_skenario3.png')
+                fig, ax = plt.subplots(figsize=(8, 6))
+                sns.heatmap(cm2, annot=True, fmt='d', cmap='Blues', xticklabels=["Negatif", "Positif"], yticklabels=["Negatif", "Positif"])
+                ax.set_xlabel('Predicted')
+                ax.set_ylabel('True')
+                ax.set_title('Confusion Matrix')
+                st.pyplot(fig)
+            if efsvm_80:
+                st.write('Accuracy: {0:0.2f}'. format(accuracy3))
+                # st.image('classification_skenario3.png')
+                fig, ax = plt.subplots(figsize=(8, 6))
+                sns.heatmap(cm3, annot=True, fmt='d', cmap='Blues', xticklabels=["Negatif", "Positif"], yticklabels=["Negatif", "Positif"])
                 ax.set_xlabel('Predicted')
                 ax.set_ylabel('True')
                 ax.set_title('Confusion Matrix')
@@ -248,7 +275,7 @@ if (selected == "Implementation"):
             st.subheader('Prediction Results')
             
             if prediction == 1:
-                st.error("Hasil Prediksi: Penyakit Jantung Terdiagnosis(1)")
+                st.error("Hasil Prediksi: Penyakit Jantung Terdiagnosis (1)")
             else:
                 st.success("Hasil Prediksi: Tidak Terdiagnosis Penyakit Jantung (0)")
         
