@@ -159,21 +159,7 @@ if (selected == 'Modelling'):
         efsvm_70 = st.checkbox('Split Data (70:30)')
         submitted = st.form_submit_button("Submit")
 
-        data_new = pd.read_csv('https://raw.githubusercontent.com/isnaini-ina/Skripsiina/refs/heads/main/data_new.csv')
-        st.dataframe(data_new)
-        X = data_new.drop('TenYearCHD', axis=1)  # Menghapus kolom target ('TenYearCHD') dari fitur
-        y = data_new['TenYearCHD']  # Menetapkan kolom target 'TenYearCHD' sebagai y
-
-        # Pembagian data sesuai dengan pilihan
-        if efsvm_90:
-            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
-        elif efsvm_80:
-            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-        elif efsvm_70:
-            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
-
-        # Load model EFSVM dengan data 90:10
-        efsvm90 = joblib.load('clf_svm_model90.pkl')
+        
         
         if submitted:
             if svm:
@@ -192,83 +178,7 @@ if (selected == 'Modelling'):
                 st.image('efsvm5.png')
                 st.write('EFSVM dengan K=3')
                 st.image('efsvm3.png')
-            # if efsvm_90:
-            #     # Panggil model EFSVM dengan data 90:10
-            #     efsvm90_pred = efsvm90.predict(X_test)
-            #     y_pred_prob = efsvm90.predict_proba(X_test)[:, 1]
-            #     auc_score = roc_auc_score(y_test, y_pred_prob)
-            #     accuracy = accuracy_score(y_test, efsvm90_pred)
-            #     report = classification_report(y_test, efsvm90_pred)
-            #     cm = confusion_matrix(y_test, efsvm90_pred)
-            #     st.write("AUC Score: ", auc_score)
-            #     st.write("Accuracy: ", accuracy)
-            #     st.write("Classification Report: ", report)
-            #     st.write("Confusion Matrix: ", cm)
-
-# if (selected == 'Modelling'):
-#     with st.form("Modelling"):
-#         st.subheader('Modelling')
-#         st.write("Pilihlah model yang akan dilakukan pengecekkan akurasi:")
-#         svm = st.checkbox('Support Vector Machine (SVM)')
-#         efsvm = st.checkbox('Entropy Fuzzy + SVM (K=3, K=5, K=7)')
-#         efsvm_90 = st.checkbox('Split Data (90:10)')
-#         efsvm_80 = st.checkbox('Split Data (80:20)')
-#         efsvm_70 = st.checkbox('Split Data (70:30)')
-#         submitted = st.form_submit_button("Submit")
-
-#         data_new = pd.read_csv('https://raw.githubusercontent.com/isnaini-ina/Skripsiina/refs/heads/main/data_new.csv')
-#         X = data_new.drop('TenYearCHD', axis=1)  # Menghapus kolom target ('TenYearCHD') dari fitur
-#         y = data_new['TenYearCHD']  # Menetapkan kolom target 'TenYearCHD' sebagai y
-
-#         X_train90, X_test90, y_train90, y_test90 = train_test_split(X, y, test_size=0.1, random_state=42)
-
-#         # # training_svm_90, test_svm_90 = train_test_split(X, test_size=0.1,random_state=42) # Nilai X training dan Nilai X testing
-#         # # training_label_svm_90, test_label_svm_90 = train_test_split(y, test_size=0.1,random_state=42) # Nilai Y training dan Nilai Y testing
-
-#         # # training_svm_80, test_svm_80 = train_test_split(X, test_size=0.2,random_state=42) # Nilai X training dan Nilai X testing
-#         # # training_label_svm_80, test_label_svm_80 = train_test_split(y, test_size=0.2,random_state=42) # Nilai Y training dan Nilai Y testing
-
-#         # # training_svm_70, test_svm_70 = train_test_split(X, test_size=0.3,random_state=42) # Nilai X training dan Nilai X testing
-#         # # training_label_svm_70, test_label_svm_70 = train_test_split(y, test_size=0.3,random_state=42) # Nilai Y training dan Nilai Y testing
-
-#         efsvm90 = joblib.load('clf_svm_model90.pkl')
-#         # efsvm80 = joblib.load('model_efsvm/clf_svm_model80.pkl')
-#         # efsvm70 = joblib.load('model_efsvm/clf_svm_model70.pkl')
-    
-#         # efsvm90_pred = efsvm90.predict(X_test90)
-#         # y_pred_prob = efsvm90.predict_proba(X_test90)[:, 1]
-#         # auc_score = roc_auc_score(y_test90, y_pred_prob)
-#         # accuracy = accuracy_score(y_test90, efsvm90_pred)
-#         # report = classification_report(y_test90, efsvm90_pred)
-#         # cm = confusion_matrix(y_test90, efsvm90_pred)
-        
-        # if submitted :
-        #     if svm :
-        #         st.write('SVM Keseluruhan')
-        #         st.image('SVM_keseluruhan.png')
-        #         st.write('Confussion Matrik Tertinggi')
-        #         st.image('confussion_matrik_SVM.png')
-        #         st.write('Classification Report Tertinggi')
-        #         st.image('classificationreport_svm.png')
-        #     if efsvm :
-        #         st.write('EFSVM dengan K=7')
-        #         st.image('efsvm7.png')
-        #         st.write('EFSVM dengan K=5')
-        #         st.image('efsvm5.png')
-        #         st.write('EFSVM dengan K=3')
-        #         st.image('efsvm3.png')
-        #     if efsvm_90:
-        #         # Panggil model EFSVM dengan data 90:10
-        #         efsvm90_pred = efsvm90.predict(X_test90)
-        #         y_pred_prob = efsvm90.predict_proba(X_test90)[:, 1]
-        #         auc_score = roc_auc_score(y_test90, y_pred_prob)
-        #         accuracy = accuracy_score(y_test90, efsvm90_pred)
-        #         report = classification_report(y_test90, efsvm90_pred)
-        #         cm = confusion_matrix(y_test90, efsvm90_pred)
-        #         st.write("AUC Score: ", auc_score)
-        #         st.write("Accuracy: ", accuracy)
-        #         st.write("Classification Report: ", report)
-        #         st.write("Confusion Matrix: ", cm)
+            
 
 if (selected == "Implementation"):
      with st.form("my_form"):
