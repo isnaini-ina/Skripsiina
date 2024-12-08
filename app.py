@@ -159,6 +159,10 @@ if (selected == 'Modelling'):
         efsvm_70 = st.checkbox('Split Data (70:30)')
         submitted = st.form_submit_button("Submit")
 
+        training_svm_90, test_svm_90 = train_test_split(X, test_size=0.1,random_state=42) # Nilai X training dan Nilai X testing
+        training_label_svm_90, test_label_svm_90 = train_test_split(y, test_size=0.1,random_state=42) # Nilai Y training dan Nilai Y testing
+
+        cat_nb = joblib.load('model/cat_nb_model.pkl')
         
         if submitted :
             if svm :
