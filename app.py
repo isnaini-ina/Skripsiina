@@ -153,10 +153,10 @@ if (selected == 'Modelling'):
         st.subheader('Modelling')
         st.write("Pilihlah model yang akan dilakukan pengecekkan akurasi:")
         svm = st.checkbox('Support Vector Machine (SVM)')
-        efsvm = st.checkbox('Entropy Fuzzy + Support Vector Machine')
-        efsvm_k3 = st.checkbox('Entropy Fuzzy + Support Vector Machine + Oversampling + Split Data (70:30)')
-        efsvm_k5 = st.checkbox('Entropy Fuzzy + Support Vector Machine + Oversampling + Split Data (80:30)')
-        efsvm_k7 = st.checkbox('Entropy Fuzzy + Support Vector Machine + Oversampling + Split Data (90:10)')
+        efsvm = st.checkbox('Entropy Fuzzy + SVM (K=3, K=5, K=7)')
+        efsvm_k3 = st.checkbox('Split Data (90:10)')
+        efsvm_k5 = st.checkbox('Split Data (80:20)')
+        efsvm_k7 = st.checkbox('Split Data (70:30)')
         submitted = st.form_submit_button("Submit")
 
 if (selected == "Implementation"):
