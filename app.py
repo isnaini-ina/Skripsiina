@@ -179,7 +179,7 @@ if (selected == 'Modelling'):
         efsvm80 = joblib.load('model_efsvm/clf_svm_model80.pkl')
         efsvm70 = joblib.load('model_efsvm/clf_svm_model70.pkl')
 
-        efsvm90_pred = efsvm90.predict(X_test90)
+        # efsvm90_pred = efsvm90.predict(X_test90)
         efsvm90_prob = efsvm90.predict_proba(X_test90)[:, 1]
         accuracy = accuracy_score(y_test90, efsvm90_prob)
         report = classification_report(y_test90, efsvm90_prob)
