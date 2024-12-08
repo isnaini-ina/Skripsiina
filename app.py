@@ -192,18 +192,18 @@ if (selected == 'Modelling'):
                 st.image('efsvm5.png')
                 st.write('EFSVM dengan K=3')
                 st.image('efsvm3.png')
-            if efsvm_90:
-                # Panggil model EFSVM dengan data 90:10
-                efsvm90_pred = efsvm90.predict(X_test)
-                y_pred_prob = efsvm90.predict_proba(X_test)[:, 1]
-                auc_score = roc_auc_score(y_test, y_pred_prob)
-                accuracy = accuracy_score(y_test, efsvm90_pred)
-                report = classification_report(y_test, efsvm90_pred)
-                cm = confusion_matrix(y_test, efsvm90_pred)
-                st.write("AUC Score: ", auc_score)
-                st.write("Accuracy: ", accuracy)
-                st.write("Classification Report: ", report)
-                st.write("Confusion Matrix: ", cm)
+            # if efsvm_90:
+            #     # Panggil model EFSVM dengan data 90:10
+            #     efsvm90_pred = efsvm90.predict(X_test)
+            #     y_pred_prob = efsvm90.predict_proba(X_test)[:, 1]
+            #     auc_score = roc_auc_score(y_test, y_pred_prob)
+            #     accuracy = accuracy_score(y_test, efsvm90_pred)
+            #     report = classification_report(y_test, efsvm90_pred)
+            #     cm = confusion_matrix(y_test, efsvm90_pred)
+            #     st.write("AUC Score: ", auc_score)
+            #     st.write("Accuracy: ", accuracy)
+            #     st.write("Classification Report: ", report)
+            #     st.write("Confusion Matrix: ", cm)
 
 # if (selected == 'Modelling'):
 #     with st.form("Modelling"):
