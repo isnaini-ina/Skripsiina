@@ -213,7 +213,7 @@ if (selected == 'Modelling'):
                 st.pyplot(fig)
             if efsvm_80:
                 st.write('Accuracy: {0:0.2f}'. format(accuracy2))
-                # st.image('classification_skenario3.png')
+                st.image('classificationreport2.png')
                 fig, ax = plt.subplots(figsize=(8, 6))
                 sns.heatmap(cm2, annot=True, fmt='d', cmap='Blues', xticklabels=["Negatif", "Positif"], yticklabels=["Negatif", "Positif"])
                 ax.set_xlabel('Predicted')
@@ -222,7 +222,7 @@ if (selected == 'Modelling'):
                 st.pyplot(fig)
             if efsvm_80:
                 st.write('Accuracy: {0:0.2f}'. format(accuracy3))
-                # st.image('classification_skenario3.png')
+                st.image('classificationreport3.png')
                 fig, ax = plt.subplots(figsize=(8, 6))
                 sns.heatmap(cm3, annot=True, fmt='d', cmap='Blues', xticklabels=["Negatif", "Positif"], yticklabels=["Negatif", "Positif"])
                 ax.set_xlabel('Predicted')
