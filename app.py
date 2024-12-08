@@ -159,6 +159,13 @@ if (selected == 'Modelling'):
         efsvm_k7 = st.checkbox('Split Data (70:30)')
         submitted = st.form_submit_button("Submit")
 
+        
+        if submitted :
+            if efsvm :
+                st.write('model efsvm')
+                st.write('efsvm.jpg')
+            
+
 if (selected == "Implementation"):
      with st.form("my_form"):
         st.subheader("Implementation")
