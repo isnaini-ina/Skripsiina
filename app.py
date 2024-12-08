@@ -78,7 +78,7 @@ if (selected == 'Dataset'):
     st.title("Dataset")
     dataset, ket = st.tabs(['Dataset', 'Ket Dataset'])
     with dataset:
-        dataset = pd.read_csv('https://raw.githubusercontent.com/isnaini-ina/Skripsiina/refs/heads/main/framingham.csv')
+        dataset = pd.read_csv('https://raw.githubusercontent.com/isnaini-ina/Skripsiina/refs/heads/main/dataset_framingham.csv')
         # Optional: Display dataset
         if st.checkbox("Show Dataset"):
             st.write(dataset)
