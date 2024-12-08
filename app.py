@@ -155,7 +155,7 @@ if (selected == 'Modelling'):
         st.subheader('Modelling')
 
         st.write("Data yang diupload:")
-        st.dataframe(data_new.head())
+        st.dataframe(data_new)
         
         if 'TenYearCHD' in data_new.columns:
             X = data_new.drop(columns=['TenYearCHD'])
