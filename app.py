@@ -162,9 +162,13 @@ if (selected == 'Modelling'):
         
         if submitted :
             if efsvm :
-                st.write('model efsvm')
-                st.image('efsvm.png')
-            
+                st.write('EFSVM dengan K=7')
+                st.image('efsvm7.png')
+                st.write('EFSVM dengan K=5')
+                st.image('efsvm5.png')
+                st.write('EFSVM dengan K=3')
+                st.image('efsvm3.png')
+    
 
 if (selected == "Implementation"):
      with st.form("my_form"):
