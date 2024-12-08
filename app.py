@@ -229,6 +229,7 @@ if (selected == 'Modelling'):
                 ax.set_ylabel('True')
                 ax.set_title('Confusion Matrix')
                 st.pyplot(fig)
+                st.image('efsvm_keseluruhan.png')
                 
 if (selected == "Implementation"):
      with st.form("my_form"):
