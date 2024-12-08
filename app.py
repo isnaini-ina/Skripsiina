@@ -220,7 +220,7 @@ if (selected == "Implementation"):
         glucose = st.number_input('Glukosa (Kadar Glukosa)',  min_value=0, max_value=100)
          
         prediksi = st.form_submit_button("Predict")
-         if prediksi:
+        if prediksi:
             input = {
                 'male': [male],
                 'age': [age],
