@@ -172,7 +172,6 @@ if (selected == 'Modelling'):
 
         # auc_score = roc_auc_score(y_test, y_pred_svm)
         accuracy = accuracy_score(y_test, y_pred_svm)
-        report = classification_report(y_test, y_pred_svm)
         cm = confusion_matrix(y_test, y_pred_svm)
         
         if submitted:
@@ -194,15 +193,12 @@ if (selected == 'Modelling'):
                 st.image('efsvm3.png')
             if efsvm_90:
                 st.write('Accuracy: {0:0.2f}'. format(accuracy))
-                st.write('Classification report: ')
-                st.text(report)
+                st.image('classification_skenario3.png')
                 fig, ax = plt.subplots(figsize=(8, 6))
                 sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=["No Disease", "Disease"], yticklabels=["No Disease", "Disease"])
                 ax.set_xlabel('Predicted')
                 ax.set_ylabel('True')
                 ax.set_title('Confusion Matrix')
-                
-                # Menampilkan gambar di Streamlit
                 st.pyplot(fig)
                 
             
