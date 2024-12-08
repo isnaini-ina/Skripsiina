@@ -194,6 +194,12 @@ if (selected == 'Modelling'):
                 st.image('efsvm3.png')
             if efsvm_90:
                 st.write('Accuracy: {0:0.2f}'. format(accuracy))
+                st.write('Classification report: ')
+                st.text(report)
+                fig, axes = plt.subplots(2, 3, figsize=(12, 8))
+                # Plot pertama
+                sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', cbar=False, ax=axes[0, 0])
+                axes[0, 0].set_title('EVSVM-90')
                 
             
 
