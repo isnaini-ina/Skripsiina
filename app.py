@@ -220,7 +220,7 @@ if (selected == 'Modelling'):
                 ax.set_ylabel('True')
                 ax.set_title('Confusion Matrix')
                 st.pyplot(fig)
-            if efsvm_80:
+            if efsvm_70:
                 st.write('Accuracy: {0:0.2f}'. format(accuracy3))
                 st.image('classificationreport3.png')
                 fig, ax = plt.subplots(figsize=(8, 6))
@@ -229,6 +229,7 @@ if (selected == 'Modelling'):
                 ax.set_ylabel('True')
                 ax.set_title('Confusion Matrix')
                 st.pyplot(fig)
+                st.write('Diagram Perbandingan Keseluruhan EFSVM')
                 st.image('efsvm_keseluruhan.png')
                 
 if (selected == "Implementation"):
