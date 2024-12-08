@@ -248,7 +248,7 @@ if (selected == "Implementation"):
             st.subheader('Prediction Results')
             
             if prediction == 1:
-                print("Hasil Prediksi: Penyakit Jantung Terdiagnosis(1)")
+                st.error("Hasil Prediksi: Penyakit Jantung Terdiagnosis(1)")
             else:
-                print("Hasil Prediksi: Tidak Terdiagnosis Penyakit Jantung (0)")
+                st.success("Hasil Prediksi: Tidak Terdiagnosis Penyakit Jantung (0)")
         
