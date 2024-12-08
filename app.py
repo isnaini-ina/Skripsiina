@@ -163,7 +163,7 @@ if (selected == 'Modelling'):
         if submitted :
             if efsvm :
                 st.write('model efsvm')
-                st.write('efsvm.jpg')
+                st.write('efsvm.png')
             
 
 if (selected == "Implementation"):
