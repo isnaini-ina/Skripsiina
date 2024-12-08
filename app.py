@@ -166,8 +166,8 @@ if (selected == 'Modelling'):
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
         
         efsvm90 = joblib.load('clf_svm_model90.pkl')
-        y_pred = efsvm90.predict(X_test)
-        y_pred_prob = efsvm90.predict_proba(X_test)[:, 1]
+        y_pred = efsvm90.predict(X_train)
+        y_pred_prob = efsvm90.predict_proba(X_train)[:, 1]
         auc_score = roc_auc_score(y_test, y_pred_prob)
         accuracy = accuracy_score(y_test, y_pred)
         
