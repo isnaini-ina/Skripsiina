@@ -212,11 +212,40 @@ if (selected == "Implementation"):
         prevalentStroke = st.selectbox('prevalentStroke (Mengalami Penyakit Stroke)', options=[0, 1]) 
         prevalentHyp = st.selectbox('prevalentHyp (Mengalami Hypertensi)', options=[0, 1]) 
         diabetes = st.selectbox('diabetes (Menderita Diabetes)', options=[0, 1])  
-        totChol = st.number_input('TotChol (Jumlah Kadar Kolestrol)',  min_value=0, max_value=100, value=50)
-        sysBP = st.number_input('SysBP (Tekanan Darah Sistolik)',  min_value=0, max_value=100, value=50)
-        diaBP = st.number_input('DiaBP (Tekanan Darah Diastolik)',  min_value=0, max_value=100, value=50)
-        bmi = st.number_input('BMI (Indeks Massa Tubuh)', min_value=0.0, value=25.0)
+        totChol = st.number_input('TotChol (Jumlah Kadar Kolestrol)',  min_value=0, max_value=100)
+        sysBP = st.number_input('SysBP (Tekanan Darah Sistolik[120/80])',  min_value=0, max_value=120)
+        diaBP = st.number_input('DiaBP (Tekanan Darah Diastolik [120/80])',  min_value=0, max_value=80)
+        bmi = st.number_input('BMI (Indeks Massa Tubuh)', min_value=0.0)
         heartRate = st.number_input('heartRate (Denyut Jantung)', min_value=0.0, value=25.0)
         glucose = st.number_input('Glukosa (Kadar Glukosa)',  min_value=0, max_value=100, value=50)
+         
         prediksi = st.form_submit_button("Predict")
+         if prediksi:
+            input = {
+                'male': [male],
+                'age': [age],
+                'currentSmoker': [currentSmoker],
+                'cigsPerDay': [cigsPerDay],
+                'BPMeds': [BPMeds],
+                'prevalentStroke': [prevalentStroke],
+                'prevalentHyp': [prevalentHyp],
+                'diabetes': [diabetes],
+                'totChol ': [totChol ],
+                'sysBP ': [sysBP],
+                'diaBP': [diaBP],
+                'bmi': [bmi],
+                'heartRate': [heartRate],
+                'glucose':[glucose]
+            }
+            input_data = pd.DataFrame(input)
+            scaler = MinMaxScaler()
+            input_data_scaled = pd.DataFrame(scaler.fit_transform(input_data), columns=input_data.columns)
+            prediction = svm.predict(input_data_scaled)
+
+            st.subheader('Prediction Results')
+            
+            if prediction == 1:
+                print("Hasil Prediksi: Penyakit Jantung Terdiagnosis(1)")
+            else:
+                print("Hasil Prediksi: Tidak Terdiagnosis Penyakit Jantung (0)")
         
