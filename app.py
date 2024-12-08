@@ -172,8 +172,8 @@ if (selected == 'Modelling'):
 
         # auc_score = roc_auc_score(y_test, y_pred_svm)
         accuracy = accuracy_score(y_test, y_pred_svm)
-        report = classification_report(y_test, y_pred)
-        cm = confusion_matrix(y_test, y_pred)
+        report = classification_report(y_test, y_pred_svm)
+        cm = confusion_matrix(y_test, y_pred_svm)
         
         if submitted:
             if svm:
