@@ -101,7 +101,7 @@ if (selected == 'Dataset'):
         
 if (selected == 'Preprocessing'):
     st.title("Preprocessing Data")
-    mean_imputation, normalisasi_data, oversampling, hapus_fitur, seleksi_fitur= st.tabs(["Mean Imputation", "Normalisasi Data", "Hapus Fitur"])
+    mean_imputation, normalisasi_data, hapus_fitur= st.tabs(["Mean Imputation", "Normalisasi Data", "Hapus Fitur"])
     with mean_imputation:
         st.write("""Informasi missing value :""")
         mis = df.isnull().sum().reset_index()
