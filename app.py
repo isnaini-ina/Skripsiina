@@ -28,6 +28,8 @@ df_IG = pd.read_excel('urutan_IG.xlsx')
 df_topfitur = pd.read_excel('hasil_topfitur.xlsx')
 data_new = pd.read_excel('data_new.xlsx')
 
+svm = joblib.load('model_efsvm/svm90.pkl')
+
 with st.sidebar:
     selected = option_menu('',['Home', 'Research', 'Dataset', 'Preprocessing', 'Modelling', 'Implementation'], default_index=0)
 if (selected == 'Home'):
@@ -241,7 +243,7 @@ if (selected == "Implementation"):
             input_data = input_data.astype(float)
             scaler = MinMaxScaler()
             input_data_scaled = pd.DataFrame(scaler.fit_transform(input_data), columns=input_data.columns)
-            prediction = svm90.predict(input_data_scaled)
+            prediction = svm.predict(input_data_scaled)
 
             st.subheader('Prediction Results')
             
