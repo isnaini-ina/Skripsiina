@@ -196,14 +196,13 @@ if (selected == 'Modelling'):
                 st.write('Accuracy: {0:0.2f}'. format(accuracy))
                 st.write('Classification report: ')
                 st.text(report)
-                fig, axes = plt.subplots(figsize=(6,4))
-                # Plot pertama
-                sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', cbar=False, ax=axes[0, 0])
-                axes[0, 0].set_title('EVSVM-90')
-                # Atur label dan judul keseluruhan
-                plt.xlabel('Prediction')
-                plt.ylabel('Actual')
-                plt.suptitle('Confusion Matrix untuk model')
+                fig, ax = plt.subplots(figsize=(8, 6))
+                sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=["No Disease", "Disease"], yticklabels=["No Disease", "Disease"])
+                ax.set_xlabel('Predicted')
+                ax.set_ylabel('True')
+                ax.set_title('Confusion Matrix')
+                
+                # Menampilkan gambar di Streamlit
                 st.pyplot(fig)
                 
             
