@@ -13,7 +13,7 @@ from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_sc
 from sklearn.preprocessing import MinMaxScaler
 from imblearn.over_sampling import RandomOverSampler
 
-st.set_page_config(page_title="SKRIPSI-ina", page_icon='logo-utm.png')
+st.set_page_config(page_title="SKRIPSI-ISNAINI", page_icon='logo-utm.png')
 @st.cache_data()
 def progress():
     with st.spinner('Wait for it...'):
