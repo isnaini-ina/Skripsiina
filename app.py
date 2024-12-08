@@ -160,6 +160,7 @@ if (selected == 'Modelling'):
         submitted = st.form_submit_button("Submit")
 
         data_new = pd.read_csv('https://raw.githubusercontent.com/isnaini-ina/Skripsiina/refs/heads/main/data_new.csv')
+        st.dataframe(data_new)
         X = data_new.drop('TenYearCHD', axis=1)  # Menghapus kolom target ('TenYearCHD') dari fitur
         y = data_new['TenYearCHD']  # Menetapkan kolom target 'TenYearCHD' sebagai y
 
