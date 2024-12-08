@@ -26,6 +26,7 @@ df_oversampling = pd.read_excel('hasil_oversampling.xlsx')
 df_hapusfitur = pd.read_excel('setelah_hapusfitur.xlsx')
 df_IG = pd.read_excel('urutan_IG.xlsx')
 df_topfitur = pd.read_excel('hasil_topfitur.xlsx')
+data_new = pd.read_excel('data_new.xlsx')
 
 with st.sidebar:
     selected = option_menu('',['Home', 'Research', 'Dataset', 'Preprocessing', 'Modelling', 'Implementation'], default_index=0)
@@ -159,7 +160,7 @@ if (selected == 'Modelling'):
         efsvm_70 = st.checkbox('Split Data (70:30)')
         submitted = st.form_submit_button("Submit")
 
-        
+        st.dataframe(data_new)
         
         if submitted:
             if svm:
