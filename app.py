@@ -160,7 +160,7 @@ if (selected == 'Modelling'):
         efsvm_70 = st.checkbox('Split Data (70:30)')
         submitted = st.form_submit_button("Submit")
 
-        st.dataframe(data_new)
+        # st.dataframe(data_new)
         X = data_new.drop('TenYearCHD', axis=1)  # Menghapus kolom target ('TenYearCHD') dari fitur
         y = data_new['TenYearCHD']  # Menetapkan kolom target 'TenYearCHD' sebagai y
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
@@ -172,6 +172,8 @@ if (selected == 'Modelling'):
 
         # auc_score = roc_auc_score(y_test, y_pred_svm)
         accuracy = accuracy_score(y_test, y_pred_svm)
+        report = classification_report(y_test, y_pred)
+        cm = confusion_matrix(y_test, y_pred)
         
         if submitted:
             if svm:
@@ -191,7 +193,7 @@ if (selected == 'Modelling'):
                 st.write('EFSVM dengan K=3')
                 st.image('efsvm3.png')
             if efsvm_90:
-                st.write("Accuracy: ", accuracy)
+                st.write('Accuracy: {0:0.2f}'. format(accuracy))
                 
             
 
