@@ -7,7 +7,7 @@ import joblib
 
 from streamlit_option_menu import option_menu
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score, confusion_matrix
+from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score, confusion_matrix, roc_auc_score
 
 # prepocessing
 from sklearn.preprocessing import MinMaxScaler
@@ -186,6 +186,7 @@ if (selected == 'Modelling'):
         efsvm70 = joblib.load('model_efsvm/clf_svm_model70.pkl')
 
         efsvm90_pred = efsvm90.predict(X_test90)
+        auc_score = roc_auc_score(y_test90, efsvm90_pred)
         accuracy = accuracy_score(y_test90, efsvm90_pred)
         report = classification_report(y_test90, efsvm90_pred)
         cm = confusion_matrix(y_test90, efsvm90_pred)
@@ -206,6 +207,7 @@ if (selected == 'Modelling'):
                 st.write('EFSVM dengan K=3')
                 st.image('efsvm3.png')
             if efsvm_90 :
+                st.write('AUC pada data uji : ', auc_score)
                 st.write('Model efsvm accuracy score: {0:0.2f}'. format(accuracy))
                 st.write('Classification report: ')
                 st.text(report)
