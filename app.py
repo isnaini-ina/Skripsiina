@@ -160,7 +160,7 @@ if (selected == 'Modelling'):
         st.write("Data yang diupload:")
         st.dataframe(data_new.head())
         
-        if 'TenYearCHD' in df.columns:
+        if 'TenYearCHD' in data_new.columns:
             X = data_new.drop(columns=['TenYearCHD'])
             y = data_new['TenYearCHD']
             
