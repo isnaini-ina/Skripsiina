@@ -173,9 +173,10 @@ if (selected == 'Modelling'):
         efsvm70 = joblib.load('model_efsvm/clf_svm_model70.pkl')
 
         efsvm90_pred = efsvm90.predict(test_svm_90)
-        accuracy = accuracy_score(test_label_svm_90, efsvm90_pred)
-        report = classification_report(test_label_svm_90, efsvm90_pred)
-        cm = confusion_matrix(test_label_svm_90, efsvm90_pred)
+        efsvm90_prob = efsvm90.predict_proba(test_svm_90)[:, 1]
+        accuracy = accuracy_score(efsvm90_pred, efsvm90_prob)
+        report = classification_report(efsvm90_pred, efsvm90_prob)
+        cm = confusion_matrix(efsvm90_pred, efsvm90_prob)
         
         if submitted :
             if svm :
