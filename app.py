@@ -27,11 +27,7 @@ df_hapusfitur = pd.read_excel('setelah_hapusfitur.xlsx')
 df_IG = pd.read_excel('urutan_IG.xlsx')
 df_topfitur = pd.read_excel('hasil_topfitur.xlsx')
 
-@st.cache_data()
-def load_data():
-    df = pd.read_csv('data_new.csv')
-    return df
-dataset = load_data()
+data_new = pd.read_csv('data_new.csv')
 
 X = dataset.drop(columns=['TenYearCHD'])
 y = dataset['TenYearCHD']
@@ -160,6 +156,14 @@ if (selected == 'Preprocessing'):
 if (selected == 'Modelling'):
     with st.form("Modelling"):
         st.subheader('Modelling')
+
+        st.write("Data yang diupload:")
+        st.dataframe(data_new.head())
+        
+        if 'TenYearCHD' in df.columns:
+            X = data_new.drop(columns=['TenYearCHD'])
+            y = data_new['TenYearCHD']
+            
         st.write("Pilihlah model yang akan dilakukan pengecekkan akurasi:")
         svm = st.checkbox('Support Vector Machine (SVM)')
         efsvm = st.checkbox('Entropy Fuzzy + SVM (K=3, K=5, K=7)')
@@ -169,8 +173,6 @@ if (selected == 'Modelling'):
         submitted = st.form_submit_button("Submit")
 
         X_train90, y_train90, X_test90, y_test90 = train_test_split(X, y, test_size=0.1, random_state=42)
-        X_train, y_train, X_test, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-        X_train, y_train, X_test, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
         # training_svm_90, test_svm_90 = train_test_split(X, test_size=0.1,random_state=42) # Nilai X training dan Nilai X testing
         # training_label_svm_90, test_label_svm_90 = train_test_split(y, test_size=0.1,random_state=42) # Nilai Y training dan Nilai Y testing
@@ -184,12 +186,10 @@ if (selected == 'Modelling'):
         efsvm90 = joblib.load('model_efsvm/clf_svm_model90.pkl')
         efsvm80 = joblib.load('model_efsvm/clf_svm_model80.pkl')
         efsvm70 = joblib.load('model_efsvm/clf_svm_model70.pkl')
-
-        if len(X_test90.shape) == 1:
-            X_test90 = X_test90.reshape(1, -1)  # Untuk data satu sampel.
     
         efsvm90_pred = efsvm90.predict(X_test90)
-        auc_score = roc_auc_score(y_test90, efsvm90_pred)
+        y_pred_prob = efsvm90.predict_proba(X_test90)[:, 1]
+        auc_score = roc_auc_score(y_test90, y_pred_prob)
         accuracy = accuracy_score(y_test90, efsvm90_pred)
         report = classification_report(y_test90, efsvm90_pred)
         cm = confusion_matrix(y_test90, efsvm90_pred)
