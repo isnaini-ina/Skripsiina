@@ -154,13 +154,18 @@ if (selected == 'Modelling'):
         st.write("Pilihlah model yang akan dilakukan pengecekkan akurasi:")
         svm = st.checkbox('Support Vector Machine (SVM)')
         efsvm = st.checkbox('Entropy Fuzzy + SVM (K=3, K=5, K=7)')
-        efsvm_k3 = st.checkbox('Split Data (90:10)')
-        efsvm_k5 = st.checkbox('Split Data (80:20)')
-        efsvm_k7 = st.checkbox('Split Data (70:30)')
+        efsvm_90 = st.checkbox('Split Data (90:10)')
+        efsvm_80 = st.checkbox('Split Data (80:20)')
+        efsvm_70 = st.checkbox('Split Data (70:30)')
         submitted = st.form_submit_button("Submit")
 
         
         if submitted :
+            if svm :
+                st.write('SVM Keseluruhan')
+                st.image('SVM_keseluruhan.png')
+                st.write('Confussion Matrik Tertinggi')
+                st.image('confussion_matrik_SVM.png')
             if efsvm :
                 st.write('EFSVM dengan K=7')
                 st.image('efsvm7.png')
