@@ -102,7 +102,7 @@ if (selected == 'Dataset'):
         
 if (selected == 'Preprocessing'):
     st.title("Preprocessing Data")
-    mean_imputation, normalisasi_data, oversampling, hapus_fitur, seleksi_fitur= st.tabs(["Mean Imputation", "Normalisasi Data", "Oversampling", "Hapus Fitur", "Seleksi Fitur"])
+    mean_imputation, normalisasi_data, oversampling, hapus_fitur, seleksi_fitur= st.tabs(["Mean Imputation", "Normalisasi Data", "Hapus Fitur"])
     with mean_imputation:
         st.write("""Informasi missing value :""")
         mis = df.isnull().sum().reset_index()
@@ -116,21 +116,6 @@ if (selected == 'Preprocessing'):
         st.latex(r"x_{\text{normalized}} = \frac{x - x_{\text{min}}}{x_{\text{max}} - x_{\text{min}}}")
         st.write("""Hasil Normalisasi :""")
         st.dataframe(df_normalisasi)
-    with oversampling:
-        jumlah_sampel = df_oversampling['TenYearCHD'].value_counts()
-        colors = ['red' if label == 0 else 'blue' for label in jumlah_sampel.index]
-        plt.bar(jumlah_sampel.index, jumlah_sampel.values, color=colors)
-        plt.title('Perbandingan Jumlah Data Negatif dan Positif Setelah Oversampling', fontsize=10)
-        plt.xlabel('Kelas TenYearCHD', fontsize=10)
-        plt.ylabel('Jumlah Data', fontsize=10)
-        plt.xticks(ticks=[0, 1], labels=['Negatif (0)', 'Positif (1)']) 
-        st.pyplot(plt)
-        proporsi = df_oversampling['TenYearCHD'].value_counts()
-        plt.figure(figsize=(4, 3))
-        proporsi.plot(kind='pie', autopct='%1.1f%%', colors=['red', 'blue'], labels=['Negatif', 'Positif'])
-        plt.title('Proporsi Data TenYearCHD Setelah Oversampling', fontsize=7)
-        plt.ylabel('') 
-        st.pyplot(plt)
     with hapus_fitur:
         korelasi_matrix = df_oversampling.corr(method='pearson')
         fig = plt.figure(figsize=(15,10))
@@ -139,17 +124,6 @@ if (selected == 'Preprocessing'):
         st.pyplot(fig)
         st.write("""Hasil Pengahapusan Fitur""")
         st.dataframe(df_hapusfitur)
-    with seleksi_fitur:
-        st.write("""Urutan Top Fitur""")
-        st.dataframe(df_IG)
-        plt.figure(figsize=(10, 6))
-        plt.barh(df_IG['Feature'], df_IG['Information Gain'], color='skyblue')
-        plt.xlabel('Information Gain')
-        plt.title('Information Gain dari Setiap Fitur')
-        plt.gca().invert_yaxis() 
-        st.pyplot(plt)
-        st.write("""Hasil Seleksi Fitur""")
-        st.dataframe(df_topfitur)
         
 if (selected == 'Modelling'):
     with st.form("Modelling"):
