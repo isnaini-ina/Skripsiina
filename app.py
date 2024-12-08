@@ -162,7 +162,20 @@ if (selected == 'Modelling'):
         training_svm_90, test_svm_90 = train_test_split(X, test_size=0.1,random_state=42) # Nilai X training dan Nilai X testing
         training_label_svm_90, test_label_svm_90 = train_test_split(y, test_size=0.1,random_state=42) # Nilai Y training dan Nilai Y testing
 
-        cat_nb = joblib.load('model/cat_nb_model.pkl')
+        training_svm_80, test_svm_80 = train_test_split(X, test_size=0.2,random_state=42) # Nilai X training dan Nilai X testing
+        training_label_svm_80, test_label_svm_80 = train_test_split(y, test_size=0.2,random_state=42) # Nilai Y training dan Nilai Y testing
+
+        training_svm_70, test_svm_70 = train_test_split(X, test_size=0.3,random_state=42) # Nilai X training dan Nilai X testing
+        training_label_svm_70, test_label_svm_70 = train_test_split(y, test_size=0.3,random_state=42) # Nilai Y training dan Nilai Y testing
+
+        efsvm90 = joblib.load('model_efsvm/clf_svm_model90.pkl')
+        efsvm80 = joblib.load('model_efsvm/clf_svm_model80.pkl')
+        efsvm70 = joblib.load('model_efsvm/clf_svm_model70.pkl')
+
+        efsvm90_pred = efsvm90.predict(test_svm_90)
+        accuracy = accuracy_score(test_label_svm_90, efsvm90_pred)
+        report = classification_report(test_label_svm_90, efsvm90_pred)
+        cm = confusion_matrix(test_label_svm_90, efsvm90_pred)
         
         if submitted :
             if svm :
@@ -179,6 +192,10 @@ if (selected == 'Modelling'):
                 st.image('efsvm5.png')
                 st.write('EFSVM dengan K=3')
                 st.image('efsvm3.png')
+            if efsvm_90 :
+                st.write('Model efsvm accuracy score: {0:0.2f}'. format(accuracy))
+                st.write('Classification report: ')
+                st.text(report)
     
 
 if (selected == "Implementation"):
