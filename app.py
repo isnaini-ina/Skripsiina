@@ -172,7 +172,7 @@ if (selected == 'Modelling'):
 
         # auc_score = roc_auc_score(y_test, y_pred_svm)
         accuracy = accuracy_score(y_test, y_pred_svm)
-        report = classification_report(y_test, y_pred_svm)
+        report_df = pd.DataFrame(classification_report(y_test, y_pred_svm, output_dict=True)).transpose()
         cm = confusion_matrix(y_test, y_pred_svm)
         
         if submitted:
@@ -195,7 +195,7 @@ if (selected == 'Modelling'):
             if efsvm_90:
                 st.write('Accuracy: {0:0.2f}'. format(accuracy))
                 st.write('Classification report: ')
-                st.text(report)
+                st.text(report_df)
                 fig, axes = plt.subplots(2, 3, figsize=(12, 8))
                 # Plot pertama
                 sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', cbar=False, ax=axes[0, 0])
