@@ -162,24 +162,28 @@ if (selected == 'Modelling'):
         efsvm_70 = st.checkbox('Split Data (70:30)')
         submitted = st.form_submit_button("Submit")
 
-        training_svm_90, test_svm_90 = train_test_split(X, test_size=0.1,random_state=42) # Nilai X training dan Nilai X testing
-        training_label_svm_90, test_label_svm_90 = train_test_split(y, test_size=0.1,random_state=42) # Nilai Y training dan Nilai Y testing
+        X_train90, y_train90, X_test90, y_test90 = train_test_split(X, y, test_size=0.1, random_state=42)
+        X_train, y_train, X_test, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+        X_train, y_train, X_test, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
-        training_svm_80, test_svm_80 = train_test_split(X, test_size=0.2,random_state=42) # Nilai X training dan Nilai X testing
-        training_label_svm_80, test_label_svm_80 = train_test_split(y, test_size=0.2,random_state=42) # Nilai Y training dan Nilai Y testing
+        # training_svm_90, test_svm_90 = train_test_split(X, test_size=0.1,random_state=42) # Nilai X training dan Nilai X testing
+        # training_label_svm_90, test_label_svm_90 = train_test_split(y, test_size=0.1,random_state=42) # Nilai Y training dan Nilai Y testing
 
-        training_svm_70, test_svm_70 = train_test_split(X, test_size=0.3,random_state=42) # Nilai X training dan Nilai X testing
-        training_label_svm_70, test_label_svm_70 = train_test_split(y, test_size=0.3,random_state=42) # Nilai Y training dan Nilai Y testing
+        # training_svm_80, test_svm_80 = train_test_split(X, test_size=0.2,random_state=42) # Nilai X training dan Nilai X testing
+        # training_label_svm_80, test_label_svm_80 = train_test_split(y, test_size=0.2,random_state=42) # Nilai Y training dan Nilai Y testing
+
+        # training_svm_70, test_svm_70 = train_test_split(X, test_size=0.3,random_state=42) # Nilai X training dan Nilai X testing
+        # training_label_svm_70, test_label_svm_70 = train_test_split(y, test_size=0.3,random_state=42) # Nilai Y training dan Nilai Y testing
 
         efsvm90 = joblib.load('model_efsvm/clf_svm_model90.pkl')
         efsvm80 = joblib.load('model_efsvm/clf_svm_model80.pkl')
         efsvm70 = joblib.load('model_efsvm/clf_svm_model70.pkl')
 
-        efsvm90_pred = efsvm90.predict(test_svm_90)
-        efsvm90_prob = efsvm90.predict_proba(test_svm_90)[:, 1]
-        accuracy = accuracy_score(test_label_svm_90, efsvm90_prob)
-        report = classification_report(test_label_svm_90, efsvm90_prob)
-        cm = confusion_matrix(test_label_svm_90, efsvm90_prob)
+        efsvm90_pred = efsvm90.predict(X_test90)
+        efsvm90_prob = efsvm90.predict_proba(X_test90)[:, 1]
+        accuracy = accuracy_score(y_test90, efsvm90_prob)
+        report = classification_report(y_test90, efsvm90_prob)
+        cm = confusion_matrix(y_test90, efsvm90_prob)
         
         if submitted :
             if svm :
