@@ -45,7 +45,7 @@ if (selected == 'Home'):
     st.markdown("<h6 style='text-align: center; '>NPM : 200411100038</h6>", unsafe_allow_html=True)
 
     dp = [
-        ("Dosen Pembimbing 1", "Dr. Bain Khusnul Khotimah, S.T., M.Kom"),
+        ("Dosen Pembimbing 1", "Dr. Bain Khusnul Khotimah, ST., M.Kom"),
         ("Dosen Pembimbing 2", "Dr. Eka Mala Sari Rochman, S.Kom. M.Kom")
     ]
     dp_table = pd.DataFrame(dp, columns=["Role", "Name"])
@@ -53,8 +53,8 @@ if (selected == 'Home'):
 
     dpn = [
         ("Dosen Penguji 1", "Dwi Kuswanto, S.Pd., M.T."),
-        ("Dosen Penguji 2", "Hermawan, ST., M.Kom."),
-        ("Dosen Penguji 3", "Prof. Aeri Rachmad, S.T., M.T.")
+        ("Dosen Penguji 2", "Dr. Hermawan, ST., M.Kom."),
+        ("Dosen Penguji 3", "Prof. Dr. Aeri Rachmad, ST., MT.")
     ]
     dpn_table = pd.DataFrame(dpn, columns=["Role", "Name"])
     st.table(dpn_table)
