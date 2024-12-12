@@ -213,12 +213,12 @@ if (selected == "Implementation"):
         prevalentStroke = st.selectbox('prevalentStroke (Mengalami Penyakit Stroke )', options=[0,1]) 
         prevalentHyp = st.selectbox('prevalentHyp (Mengalami Hypertensi)', options=[0,1]) 
         diabetes = st.selectbox('diabetes (Menderita Diabetes)', options=[0,1])  
-        totChol = st.number_input('TotChol (Jumlah Kadar Kolestrol)',  min_value=0, max_value=1000)
-        sysBP = st.number_input('SysBP (Tekanan Darah Sistolik)',  min_value=0, max_value=1000)
-        diaBP = st.number_input('DiaBP (Tekanan Darah Diastolik)',  min_value=0, max_value=1000)
-        bmi = st.number_input('BMI (Indeks Massa Tubuh)', min_value=0.0, max_value=1000)
-        heartRate = st.number_input('heartRate (Denyut Jantung)', min_value=0.0, max_value=1000)
-        glucose = st.number_input('Glukosa (Kadar Glukosa)',  min_value=0, max_value=1000)
+        totChol = st.number_input('TotChol (Jumlah Kadar Kolestrol)',  min_value=0)
+        sysBP = st.number_input('SysBP (Tekanan Darah Sistolik)',  min_value=0)
+        diaBP = st.number_input('DiaBP (Tekanan Darah Diastolik)',  min_value=0)
+        bmi = st.number_input('BMI (Indeks Massa Tubuh)', min_value=0.0)
+        heartRate = st.number_input('heartRate (Denyut Jantung)', min_value=0.0)
+        glucose = st.number_input('Glukosa (Kadar Glukosa)',  min_value=0)
          
         prediksi = st.form_submit_button("Predict")
         if prediksi:
