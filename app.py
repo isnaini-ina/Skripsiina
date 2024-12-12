@@ -206,7 +206,7 @@ if (selected == "Implementation"):
      with st.form("my_form"):
         st.subheader("Implementation")
         male = st.selectbox('Male', options=[0,1])
-        age = st.number_input('Age (Usia Pasien)', min_value=0)
+        age = st.number_input('Age (Usia Pasien)', min_value=0, max_value=1000)
         currentSmoker = st.selectbox('currentSmoker (Perokok)', options=[0,1]) 
         cigsPerDay = st.number_input('cigsPerDay (Jumlah Rokok Perhari)',  min_value=0) 
         BPMeds = st.selectbox('BPMeds (Menjalani Pengobatan Tekanan Darah )', options=[0,1]) 
